@@ -393,7 +393,7 @@ class PixApp:
         self.write_logs("PROCESSAR")
         self.write_logs(res)
         
-        result = obter_valor(res, "codigo")
+        result = obter_valor(res, "resultato.status_code")
         return result
 
     # =======================================
