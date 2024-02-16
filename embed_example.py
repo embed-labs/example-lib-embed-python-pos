@@ -175,6 +175,19 @@ class PixApp:
             command=self.pagamento_debito,
         )
         btns["btn_debito"].grid(column=0, row=2, columnspan=2, padx=5, pady=5, sticky=NSEW)
+
+        btns["btn_credito"] = Button(
+            self.value_frame,
+            text="Credito",
+            relief=RAISED,
+            bg=COLOR_BG_BUTTON,
+            fg=COLOR_FG_BUTTON,
+            font=SMALL_FONT_STYLE,
+            borderwidth=1,
+            width=17,
+            command=self.pagamento_credito,
+        )
+        btns["btn_credito"].grid(column=2, row=2, columnspan=2, padx=5, pady=5, sticky=NSEW)
         
         btns["canc"] = Button(
             self.operator_frame,
@@ -235,9 +248,19 @@ class PixApp:
     def pagamento_debito(self):
         self.buttons["configs"]["state"] = "disabled"
         self.buttons["btn_debito"]["state"] = "disabled"
+        self.buttons["btn_credito"]["state"] = "disabled"
         self.buttons["canc"]["state"] = "active"
         self.running = True
         self.process_thread = Thread(target=self.debito)
+        self.process_thread.start()
+
+    def pagamento_credito(self):
+        self.buttons["configs"]["state"] = "disabled"
+        self.buttons["btn_debito"]["state"] = "disabled"
+        self.buttons["btn_credito"]["state"] = "disabled"
+        self.buttons["canc"]["state"] = "active"
+        self.running = True
+        self.process_thread = Thread(target=self.credito)
         self.process_thread.start()
 
     def cancelamento(self):
@@ -267,6 +290,29 @@ class PixApp:
             return self.error()
 
         self.buttons["btn_debito"]["state"] = "active"
+        self.buttons["btn_credito"]["state"] = "active"
+        self.buttons["configs"]["state"] = "active"
+        self.lbl_operator_text.set("Ready")
+        self.root.update()
+
+    def credito(self):
+        if "Sucesso" not in self.e_iniciar():
+            return self.error()
+        if "Sucesso" not in self.e_debito():
+            return self.error()
+        while self.running:
+            result = self.e_status() 
+            self.lbl_operator_text.set(f"Result: {result}")
+            self.root.update()
+            if "-1" in result:
+                self.error()
+                break;
+            if "0" in result:
+                break
+        if "Sucesso" not in finalizar(""):
+            return self.error()
+        self.buttons["btn_debito"]["state"] = "active"
+        self.buttons["btn_credito"]["state"] = "active"
         self.buttons["configs"]["state"] = "active"
         self.lbl_operator_text.set("Ready")
         self.root.update()
@@ -336,7 +382,7 @@ class PixApp:
         return res
 
     def e_debito(self):
-        self.lbl_operator_text.set("pedindo qrcode para 1 real")
+        self.lbl_operator_text.set("pedindo transacao para 1 real")
 
         OPERACAO    = 'debito'      # obtem o qrcode
         VALOR       = "100"         # valor sempre em centavos
@@ -348,6 +394,44 @@ class PixApp:
             "processar": {
                 "operacao": OPERACAO,   
                 "valor": VALOR
+            }
+        }
+        input_json = json.dumps(input_data)
+        res = processar(input_json)
+
+        # META PARAMETROS
+        # input_data = f"{OPERACAO};{VALOR}"
+        # res = processar(input_data)
+
+        self.write_logs("PROCESSAR")
+        self.write_logs(res)
+        
+        status_code = obter_valor(res, "resultado.status_code")
+        message = obter_valor(res, "mensagem")
+
+        if status_code == "1":
+            self.lbl_operator_text.set("Pagar")
+            self.root.update()
+        else:
+            print("error in response ")
+            self.lbl_operator_text.set("Ocorreu algum erro ao obter o qrcode")
+        return message
+
+    def e_credito(self):
+        self.lbl_operator_text.set("pedindo transacao para 1 real")
+
+        OPERACAO    = 'credito'      # obtem o qrcode
+        VALOR       = "100"         # valor sempre em centavos
+        PARCELAS    = "3"           # quantidade de parcelas
+
+        # DESCOMENTE UMA DAS OPCOES PARA TESTAR: JSON OU META PARAMETROS
+
+        # JSON 
+        input_data = {
+            "processar": {
+                "operacao": OPERACAO,   
+                "valor": VALOR,
+                "parcelas": PARCELAS,
             }
         }
         input_json = json.dumps(input_data)
