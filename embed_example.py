@@ -53,13 +53,13 @@ COLOR_FG_BUTTON_DISABLED = "#666666"
 # =========================================
 
 
-class PixApp:
+class PosApp:
     # =========================================
     # | ===========  BEGIN LAYOUT =========== |
     # =========================================
     def __init__(self, root):
         self.root = root
-        self.root.title("Exemplo Pix")
+        self.root.title("Exemplo Pos")
         self.root.resizable(width=False, height=False)
         self.root.minsize(700, 400)
         self.root.grid_rowconfigure(0, weight=1)
@@ -241,7 +241,7 @@ class PixApp:
     # =======================================
 
     # =======================================
-    # | ==============  PIX  ============== |
+    # | ==============  POS  ============== |
     # =======================================
     def error(self):
         self.lbl_operator_text.set("Aconteceu algum erro na operacao")
@@ -487,12 +487,12 @@ class PixApp:
         return result
 
     # =======================================
-    # | ============  END PIX  ============ |
+    # | ============  END POS  ============ |
     # =======================================
 
     def run(self):
         self.root.mainloop()
 
 if __name__ == "__main__":
-    app = PixApp(Tk())
+    app = PosApp(Tk())
     app.run()
