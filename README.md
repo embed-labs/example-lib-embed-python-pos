@@ -284,6 +284,7 @@ O retorno para este método consiste em um JSON (sempre), no seguinte formato:
         "status_message": "iniciado"
     }
 }
+```
 
 #### 5. Obter Valor
 
