@@ -63,7 +63,7 @@ graph TD;
 ```mermaid
 flowchart TD;
     cred1(embed_iniciar\ninput = pos) -- result.status_code ==  0 --> cred2(embed_processar\ninput = credito;10000;1);
-    cred2 -- result.status_code ==  0 --> cred3(embed_processar\ninput = get_status);
+    cred2 -- result.status_code ==  1 --> cred3(embed_processar\ninput = get_status);
     cred3 -- result.status_code ==  1 --> cred3;
     cred3 -- result.status_code ==  0 --> cred4(embed_finalizar\ninput = N/A);
 ```
@@ -71,7 +71,7 @@ flowchart TD;
 ```mermaid
 flowchart TD;
     deb1(embed_iniciar\ninput = pos) -- result.status_code ==  0 --> deb2(embed_processar\ninput = debito;10000);
-    deb2 -- result.status_code ==  0 --> deb3(embed_processar\ninput = get_status);
+    deb2 -- result.status_code ==  1 --> deb3(embed_processar\ninput = get_status);
     deb3 -- result.status_code ==  1 --> deb3;
     deb3 -- result.status_code ==  0 --> deb4(embed_finalizar\ninput = N/A);
 ```
