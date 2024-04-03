@@ -6,7 +6,11 @@ Exemplo demonstrativo para o uso da `lib-embed` no transações com POS.
 
 ### Requisitos
 
-É necessário ter o Python 3 instalado em sua máquina.
+É necessário o Python 3 instalado em sua máquina.
+
+Verifique a necessidade de instalar as dependências:
+- PIP
+- PILLOW
 
 ### Clonar
 
@@ -23,11 +27,20 @@ cd example-lib-embed-python-pos
 mv .env.example .env
 ```
 
-Feito isso, executar o programa com python
+Feito isso, executar o programa com Python
 
 ```
-python3 embed_example.py
+python3 embed_ui.py
 ```
+
+### Sobre o exemplo
+
+Este exemplo contem três itens fundamentais:
+1. embed_lib.py: carregamemento das bibliotecas 
+2. embed_api.py: utilização dos métodos para transações/operações com POS
+3. embed_ui.py: interface gráfica simplificada que consome os métodos
+
+*OBS*: em **embed_ui.py** verifique as funções **processar** de cada item, ali tem o caminho das pedras para integração
 
 ## API
 
@@ -192,7 +205,7 @@ Estas modalidades podem ser parametrizadas de duas formas:
 // Débito
 {
     "processar": {
-        "operacao": "débito",           // debito
+        "operacao": "debito",           // debito
         "valor": ""                     // em centavos (se R$ 1,00 logo 100)
     }
 }
@@ -256,6 +269,21 @@ Pode ser parametrizado de duas maneiras:
 2. Metaparâmetro
 ```c
 ""
+```
+
+###### 4.2.2. Output
+
+O retorno para este método consiste em um JSON (sempre), no seguinte formato:
+
+```json
+{
+    "codigo": 0,
+    "mensagem": "Sucesso",
+    "resultado": {
+        "status_code": 1,
+        "status_message": "iniciado"
+    }
+}
 ```
 
 #### 5. Obter Valor
@@ -335,8 +363,7 @@ Ao finalizar com sucesso a propriedade _result_ além de retornar _status_code_ 
 | valor | Valor do pagamento realizado em centavos |
 | parcelas | Quantidade de parcelas (para débito sempre o valor será 1) |
 | data_hora | Data/hora do pagamento realizado|
+| rede | Rede que realizou o pagamento |
 | bandeira | Bandeira do cartão que realizou o pagamento |
-| aid | AID do cartão utilizado |
 | nsu | Número sequencial único (utilizado para realizar o cancelamento) |
-| numero_cartao | Número do cartão utilizado no pagamento com máscara |
 | codigo_autorizacao | Código da autorização do pagamento |
