@@ -242,7 +242,7 @@ O retorno para este método consiste em um JSON (sempre), no seguinte formato:
 
 #### 4. Finalizar
 
-Este método realiza a finalização de transações TEF
+Este método realiza a finalização de transações POS
 
 ##### 4.1. Assinatura
 
@@ -333,7 +333,7 @@ Será um String com valor informado em _key_ se conter em _json_
 
 ### Retornos 
 
-Os possíveis retornos para os métodos utilizando o produto TEF conforme as tabelas abaixo
+Os possíveis retornos para os métodos utilizando o produto POS conforme as tabelas abaixo
 
 | codigo | mensagem |
 | - | - |
@@ -341,11 +341,11 @@ Os possíveis retornos para os métodos utilizando o produto TEF conforme as tab
 | -1 | Erro |
 | -2 | Deserialize |
 | -3 | ProviderError |
-| -21 | TefError |
-| -22 | TefMissingParameter |
-| -23 | TefInvalidOperation |
-| -24 | TefInputBadFormat |
-| -25 | TefTransactionError |
+| -21 | POSError |
+| -22 | POSMissingParameter |
+| -23 | POSInvalidOperation |
+| -24 | POSInputBadFormat |
+| -25 | POSTransactionError |
 
 | status_code | status_message |
 | - | - |
