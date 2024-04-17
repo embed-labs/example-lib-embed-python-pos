@@ -20,6 +20,8 @@ git clone git@github.com:org-dev-embed/example-lib-embed-python-pos.git
 
 ### Configurações 
 
+#### Exemplo
+
 Acessar o diretório, modificar o arquivo .env.example, renomeando para .env e colocando os valores passados pelo time de integração
 
 ```
@@ -27,11 +29,19 @@ cd example-lib-embed-python-pos
 mv .env.example .env
 ```
 
-Feito isso, executar o programa com Python
+Feito isso, adicionar as credenciais que serão fornecidas pelo time de integração
+
+Após isto, executar o comando
 
 ```
 python3 embed_ui.py
 ```
+
+#### POS
+
+Para iniciar a configuração do dispositivo, vá até a loja apps e baixe o PDV MOBI.
+
+As credenciais de acesso ao app e onde obter o Número Serial (essencial para operação) serão indicadas para você.
 
 ### Sobre o exemplo
 
@@ -106,7 +116,7 @@ Pode ser parametrizado de duas maneiras:
             "token": "",                      // gerado pelo time de integração
             "username": "",                   // gerado pelo time de integração
             "password": "",                   // gerado pelo time de integração
-            "pos_numero_serial_padrao": ""    // gerado pelo time de integração
+            "pos_numero_serial_padrao": ""    // obtido através da aplicação PDV Mobi no POS
         }
     }
 }
