@@ -341,11 +341,11 @@ Os possíveis retornos para os métodos utilizando o produto POS conforme as tab
 | -1 | Erro |
 | -2 | Deserialize |
 | -3 | ProviderError |
-| -21 | POSError |
-| -22 | POSMissingParameter |
-| -23 | POSInvalidOperation |
-| -24 | POSInputBadFormat |
-| -25 | POSTransactionError |
+| -21 | PosError |
+| -22 | PosMissingParameter |
+| -23 | PosInvalidOperation |
+| -24 | PosInputBadFormat |
+| -25 | PosTransactionError |
 
 | status_code | status_message |
 | - | - |
