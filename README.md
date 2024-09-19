@@ -1,4 +1,4 @@
-# example-lib-embed-python-pos
+![embed](https://github.com/user-attachments/assets/9d78c555-3f53-483b-987c-98ec533f3fa3)
 
 Exemplo demonstrativo para o uso da `lib-embed` no transações com POS.
 
@@ -57,34 +57,9 @@ Este exemplo contem três itens fundamentais:
 ### Fluxos
 Vamos definir o fluxo que deve ser seguido para que sua implementação seja realizada seguindo as melhores práticas no uso da nossa API
 
-#### Geral
-```mermaid
-graph TD;
-    A(1 - embed_configurar) -->B(2 - embed_iniciar);    
-    B --> C(3 - embed_processar);
-    C --> D{4 - embed_processar};
-    D --> |processando|D;
-    D --> E(5 - embed_finalizar);
-```
-
-#### Transações
-
-1. Crédito
-```mermaid
-flowchart TD;
-    cred1(embed_iniciar\ninput = pos) -- result.status_code ==  0 --> cred2(embed_processar\ninput = credito;10000;1);
-    cred2 -- result.status_code ==  1 --> cred3(embed_processar\ninput = get_status);
-    cred3 -- result.status_code ==  1 --> cred3;
-    cred3 -- result.status_code ==  0 --> cred4(embed_finalizar\ninput = N/A);
-```
-2. Débito
-```mermaid
-flowchart TD;
-    deb1(embed_iniciar\ninput = pos) -- result.status_code ==  0 --> deb2(embed_processar\ninput = debito;10000);
-    deb2 -- result.status_code ==  1 --> deb3(embed_processar\ninput = get_status);
-    deb3 -- result.status_code ==  1 --> deb3;
-    deb3 -- result.status_code ==  0 --> deb4(embed_finalizar\ninput = N/A);
-```
+![fluxo-geral](https://github.com/user-attachments/assets/7fa70563-c792-41eb-b643-05deb187b966)
+![fluxo-credito-2](https://github.com/user-attachments/assets/a5f75944-ca3c-4e1c-b53a-110749271a65)
+![fluxo-debito-2](https://github.com/user-attachments/assets/5288dada-f7b0-4e22-b442-0f41b964a24f)
 
 ### Métodos
 
