@@ -15,7 +15,7 @@ Verifique a necessidade de instalar as dependências:
 ### Clonar
 
 ```git
-git clone git@github.com:org-dev-embed/example-lib-embed-python-pos.git
+git clone git@github.com:embed-labs/example-lib-embed-python-pos.git
 ```
 
 ### Configurações 
