@@ -6,11 +6,19 @@ Exemplo demonstrativo para o uso da `lib-embed` no transações com POS.
 
 ### Requisitos
 
-É necessário o Python 3 instalado em sua máquina.
+É necessário ter o Python 3 instalado em sua máquina.
 
-Verifique a necessidade de instalar as dependências:
-- PIP
-- PILLOW
+#### Dependências 
+- python3-tk
+- python3-pip
+- Pillow (via pip)
+- python-dotenv (via pip)
+
+### Equipamentos
+
+É obrigatório ter um SmartPOS Andriod de um dos modelos abaixo.
+
+![SmartPOS](https://github.com/user-attachments/assets/07729947-c5c2-4a7c-9d3b-ab7b5cd101cb)
 
 ### Clonar
 
