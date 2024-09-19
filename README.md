@@ -58,7 +58,7 @@ Este exemplo contem três itens fundamentais:
 Vamos definir o fluxo que deve ser seguido para que sua implementação seja realizada seguindo as melhores práticas no uso da nossa API
 
 ![fluxo-geral](https://github.com/user-attachments/assets/7fa70563-c792-41eb-b643-05deb187b966)
-![fluxo-credito-2](https://github.com/user-attachments/assets/a5f75944-ca3c-4e1c-b53a-110749271a65)
+![fluxo-credito-2](https://github.com/user-attachments/assets/c12455d2-002a-4b42-9643-a7f912fc19f9)
 ![fluxo-debito-2](https://github.com/user-attachments/assets/5288dada-f7b0-4e22-b442-0f41b964a24f)
 
 ### Métodos
