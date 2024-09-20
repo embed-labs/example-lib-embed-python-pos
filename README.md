@@ -16,7 +16,7 @@ Exemplo demonstrativo para o uso da `lib-embed` no transações com POS.
 
 ### Equipamentos
 
-É obrigatório ter um SmartPOS Andriod de um dos modelos abaixo.
+É obrigatório ter um `SmartPOS Andriod` conforme os modelos abaixo.
 
 ![SmartPOS](https://github.com/user-attachments/assets/07729947-c5c2-4a7c-9d3b-ab7b5cd101cb)
 
@@ -65,9 +65,9 @@ Este exemplo contem três itens fundamentais:
 ### Fluxos
 Vamos definir o fluxo que deve ser seguido para que sua implementação seja realizada seguindo as melhores práticas no uso da nossa API
 
-![geral](https://github.com/user-attachments/assets/d4d2df8c-4cee-43b8-9111-8db34660a6c3)
-![pos-credito](https://github.com/user-attachments/assets/5d6e9907-03ab-4450-a6f8-dba11a74be7c)
-![pos-debito](https://github.com/user-attachments/assets/6bcbc28b-5ba6-41ce-9b88-1db360c4073d)
+![fluxo-geral](https://github.com/user-attachments/assets/fb62c910-0027-443f-ad99-8898f368cb1f)
+![pos-credito](https://github.com/user-attachments/assets/7d5c197f-08f2-47c0-8b6b-5ecada4722d0)
+![pos-debito](https://github.com/user-attachments/assets/d2470082-5a6e-40e9-b6ae-8daccd2ab238)
 
 ### Métodos
 
