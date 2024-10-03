@@ -1,4 +1,4 @@
-# example-lib-embed-python-pos
+![embed](https://github.com/user-attachments/assets/9d78c555-3f53-483b-987c-98ec533f3fa3)
 
 Exemplo demonstrativo para o uso da `lib-embed` no transações com POS.
 
@@ -6,16 +6,24 @@ Exemplo demonstrativo para o uso da `lib-embed` no transações com POS.
 
 ### Requisitos
 
-É necessário o Python 3 instalado em sua máquina.
+É necessário ter o Python 3 instalado em sua máquina.
 
-Verifique a necessidade de instalar as dependências:
-- PIP
-- PILLOW
+#### Dependências 
+- python3-tk
+- python3-pip
+- Pillow (via pip)
+- python-dotenv (via pip)
+
+### Equipamentos
+
+É obrigatório ter um `SmartPOS Andriod` conforme os modelos abaixo.
+
+![SmartPOS](https://github.com/user-attachments/assets/07729947-c5c2-4a7c-9d3b-ab7b5cd101cb)
 
 ### Clonar
 
 ```git
-git clone git@github.com:org-dev-embed/example-lib-embed-python-pos.git
+git clone git@github.com:embed-labs/example-lib-embed-python-pos.git
 ```
 
 ### Configurações 
@@ -57,34 +65,9 @@ Este exemplo contem três itens fundamentais:
 ### Fluxos
 Vamos definir o fluxo que deve ser seguido para que sua implementação seja realizada seguindo as melhores práticas no uso da nossa API
 
-#### Geral
-```mermaid
-graph TD;
-    A(1 - embed_configurar) -->B(2 - embed_iniciar);    
-    B --> C(3 - embed_processar);
-    C --> D{4 - embed_processar};
-    D --> |processando|D;
-    D --> E(5 - embed_finalizar);
-```
-
-#### Transações
-
-1. Crédito
-```mermaid
-flowchart TD;
-    cred1(embed_iniciar\ninput = pos) -- result.status_code ==  0 --> cred2(embed_processar\ninput = credito;10000;1);
-    cred2 -- result.status_code ==  1 --> cred3(embed_processar\ninput = get_status);
-    cred3 -- result.status_code ==  1 --> cred3;
-    cred3 -- result.status_code ==  0 --> cred4(embed_finalizar\ninput = N/A);
-```
-2. Débito
-```mermaid
-flowchart TD;
-    deb1(embed_iniciar\ninput = pos) -- result.status_code ==  0 --> deb2(embed_processar\ninput = debito;10000);
-    deb2 -- result.status_code ==  1 --> deb3(embed_processar\ninput = get_status);
-    deb3 -- result.status_code ==  1 --> deb3;
-    deb3 -- result.status_code ==  0 --> deb4(embed_finalizar\ninput = N/A);
-```
+![fluxo-geral](https://github.com/user-attachments/assets/fb62c910-0027-443f-ad99-8898f368cb1f)
+![pos-credito](https://github.com/user-attachments/assets/7d5c197f-08f2-47c0-8b6b-5ecada4722d0)
+![pos-debito](https://github.com/user-attachments/assets/d2470082-5a6e-40e9-b6ae-8daccd2ab238)
 
 ### Métodos
 
